@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-con{
+        display : grid;
+        grid-template-columns : 1fr 3fr 1fr;
+    }
+</style>
+
+{% if request.user.is_authenticated %}
+<h4>Welcome, {{ request.user }} </h4>
+
+
+{% endif %}
+
+<h1>Home page</h1>
+<hr>
+<div class="home-con">
+    <div>
+    <h3>Browse topics</h3>
+    <hr>
+
+    {% include 'hotel/browse.html' %}
+  
+    </div>
+
+
+    <div>
+
+
+
+    {% include 'hotel/home-con.html'%}
+
+
+    </div>
+
+
+    <div>
+    <h3>Recent Activities</h3>
+
+    {% include "hotel/recent.html" %}
+    </div>
+
+</div>
+{% endblock content %}
+    
+

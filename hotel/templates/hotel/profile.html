@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+.profile_con{
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+
+}
+</style>
+
+<div class="profile_con">
+
+<div>
+    {% include "hotel/browse.html" %}
+</div>
+
+
+<div>
+    <h1>@{{ user.user }}</h1>
+</div>
+
+<div>
+    {% include "hotel/recent.html" %}
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}

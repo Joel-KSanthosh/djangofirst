@@ -1,0 +1,18 @@
+<div>
+    {%for msg in roommsg %}
+    
+    <small><p><a href="{% url 'profile' msg.user.id %}">@{{ msg.user }}</a> -- {{msg.created|timesince}} </p></small>
+    <small>
+        <div>
+            replied in - "{{ msg.room }}"
+            <div>
+            <p>    {{  msg.body }}</p>
+            </div>
+            {% if request.user == msg.user %}
+            <p><a href="{% url 'deletem' msg.id %}">Delete</a></p>
+            {% endif %}
+        </div>
+    </small>
+    <hr>
+<div>
+    {% endfor %}
